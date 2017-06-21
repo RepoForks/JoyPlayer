@@ -9,7 +9,7 @@ import developer.shivam.joyplayer.injection.module.ActivityModule
 /*
  * Created by shivam on 21/6/17.
  */
-open class BaseActivity: AppCompatActivity() {
+open class BaseActivity: AppCompatActivity(), MvpView {
 
     var activityComponent: ActivityComponent? = null;
 
@@ -22,5 +22,11 @@ open class BaseActivity: AppCompatActivity() {
         }
 
         return activityComponent;
+    }
+
+    override fun hideLoading() {
+    }
+
+    override fun showLoading() {
     }
 }

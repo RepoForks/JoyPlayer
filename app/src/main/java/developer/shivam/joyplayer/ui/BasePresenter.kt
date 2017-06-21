@@ -3,7 +3,7 @@ package developer.shivam.joyplayer.ui
 /*
  * Created by shivam on 21/6/17.
  */
-open class BasePresenter<T> : MvpPresenter<T> {
+open class BasePresenter<T: MvpView> : MvpPresenter<T> {
 
     var view: T? = null
 
