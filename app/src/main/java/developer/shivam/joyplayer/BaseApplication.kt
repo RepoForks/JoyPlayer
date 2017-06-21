@@ -1,5 +1,6 @@
 package developer.shivam.joyplayer
 
+import android.app.Activity
 import android.app.Application
 import developer.shivam.joyplayer.injection.component.ApplicationComponent
 import developer.shivam.joyplayer.injection.component.DaggerApplicationComponent
@@ -12,6 +13,12 @@ class BaseApplication: Application() {
 
     var applicationComponent: ApplicationComponent? = null
 
+    companion object {
+        fun get(activity: Activity) : BaseApplication {
+            return activity.application as BaseApplication
+        }
+    }
+
     override fun onCreate() {
         super.onCreate()
 
@@ -20,5 +27,9 @@ class BaseApplication: Application() {
                     .applicationModule(ApplicationModule(this))
                     .build()
         }
+    }
+
+    fun getComponent(): ApplicationComponent? {
+        return applicationComponent;
     }
 }
